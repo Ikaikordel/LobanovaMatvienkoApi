@@ -9,13 +9,13 @@
         xmlns:local="clr-namespace:LobanovaMatvienkoWpfClient"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance vm:MainViewModel}"
-        Title="MainWindow" Height="450" Width="1000">
+        Title="MainWindow" Height="500" Width="1000">
     <TabControl
     materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
     SnapsToDevicePixels="True"
     Style="{StaticResource MaterialDesignNavigationRailTabControl}"
     TabStripPlacement="Left">
-        <TabItem >
+        <TabItem Width="100">
             <TabItem.Header>
                 <StackPanel>
                     <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Account"/>
@@ -27,21 +27,21 @@
         <v:ClientsView DataContext="{Binding clientsViewModel}"/>
         </TabItem>
 
-        <TabItem>
+        <TabItem Width="100" Height="100">
             <TabItem.Header>
                 <StackPanel>
-                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Account"/>
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Dumbbell"/>
                     <TextBlock HorizontalAlignment="Center">
                 Залы
                     </TextBlock>
                 </StackPanel>
             </TabItem.Header>
-            <v:ClientsView DataContext="{Binding clientsViewModel}"/>
+            <v:GymsView DataContext="{Binding clientsViewModel}"/>
         </TabItem>
-        <TabItem Width="100">
+        <TabItem Width="100" Height="100">
             <TabItem.Header>
                 <StackPanel>
-                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Account"/>
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="PlaylistCheck"/>
                     <TextBlock>
                 Абонементы
                     </TextBlock>
@@ -49,29 +49,28 @@
             </TabItem.Header>
             <v:ClientsView DataContext="{Binding clientsViewModel}"/>
         </TabItem>
-        <TabItem>
+        <TabItem Width="100" Height="100">
+            <TabItem.Header >
+                <StackPanel>
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="WeightLifter"/>
+                    <TextBlock HorizontalAlignment="Center">
+                Тренировки
+                    </TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <v:WorkoutsView DataContext="{Binding clientsViewModel}"/>
+        </TabItem>
+        <TabItem Width="100" Height="100">
             <TabItem.Header>
                 <StackPanel>
-                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Account"/>
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="FaceMan"/>
                     <TextBlock HorizontalAlignment="Center">
-                Клиенты
+                Тренеры
                     </TextBlock>
                 </StackPanel>
             </TabItem.Header>
             <v:ClientsView DataContext="{Binding clientsViewModel}"/>
         </TabItem>
-        <TabItem>
-            <TabItem.Header>
-                <StackPanel>
-                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Account"/>
-                    <TextBlock HorizontalAlignment="Center">
-                Клиенты
-                    </TextBlock>
-                </StackPanel>
-            </TabItem.Header>
-            <v:ClientsView DataContext="{Binding clientsViewModel}"/>
-        </TabItem>
-
 
     </TabControl>
 </Window>

@@ -7,7 +7,45 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <StackPanel  Background="MintCream" >
+        <ListView x:Name="lv" ItemsSource="{Binding Gyms}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  DisplayMemberBinding="{Binding GymId}">#</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Type}"  >Тип</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding MaxPeople}">Max человек</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Name}">Название</GridViewColumn>
 
-    </Grid>
+                    <GridViewColumn  Header="Удаление">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Удалить"  Command="{Binding ElementName=lv, Path=DataContext.DeleteGymCommand}" CommandParameter="{Binding GymId}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TabControl>
+            <TabItem Header="Добавление">
+                <StackPanel>
+
+                    <GroupBox BorderBrush="Gray" Header="Тип">
+                        <TextBox Text="{Binding newGym.Type}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Max человек">
+                        <TextBox Text="{Binding newGym.MaxPeople}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Название">
+                        <TextBox Text="{Binding newGym.Name}"/>
+                    </GroupBox>
+
+
+                    <Button Background="Gray" Content="Добавить зал" Command="{Binding AddGymsCommand}"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Изменить"/>
+
+        </TabControl>
+    </StackPanel>
 </UserControl>

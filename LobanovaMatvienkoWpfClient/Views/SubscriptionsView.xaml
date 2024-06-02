@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="LobanovaMatvienkoWpfClient.Views.SubscriptionsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LobanovaMatvienkoWpfClient.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel  Background="PapayaWhip">
+        <ListView x:Name="lv" ItemsSource="{Binding Subscriptions}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding SubscriptionId}">#</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Price}"  >Цена</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding OpenDate}">Дата начала</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding CloseDate}">Дата окончания</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Specialization}">Специализация</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding ClientId}">Id клиента</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding WorkoutId}">Id тренировки</GridViewColumn>
+                    <GridViewColumn  Header="Удаление">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Удалить"  Command="{Binding ElementName=lv, Path=DataContext.DeleteSubscriptionCommand}" CommandParameter="{Binding SubscriptionId}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TabControl>
+            <TabItem Header="Добавление">
+                <StackPanel>
+
+                    <GroupBox BorderBrush="Gray" Header="Цена">
+                        <TextBox Text="{Binding newSubscription.Price}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Дата начала">
+                        <TextBox Text="{Binding newSubscription.OpenDate}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Дата окончания">
+                        <TextBox Text="{Binding newSubscription.CloseDate}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Специализация">
+                        <TextBox Text="{Binding newSubscription.Specialization}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Id клиента">
+                        <TextBox Text="{Binding newSubscription.ClientId}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Id тренировки">
+                        <TextBox Text="{Binding newSubscription.WorkoutId}"/>
+                    </GroupBox>
+
+                    <Button Background="Gray" Content="Добавить Абонемент" Command="{Binding AddSubscriptionsCommand}"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Изменить"/>
+
+        </TabControl>
+    </StackPanel>
+</UserControl>

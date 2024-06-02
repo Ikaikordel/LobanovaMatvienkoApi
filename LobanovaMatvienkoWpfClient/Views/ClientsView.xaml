@@ -5,9 +5,46 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LobanovaMatvienkoWpfClient.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:vm="clr-namespace:LobanovaMatvienkoWpfClient.ViewModels"
+             d:DataContext="{d:DesignInstance vm:ClientsViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    
+    <StackPanel Background="WhiteSmoke">
+        <ListView x:Name="lv" ItemsSource="{Binding Clients}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  DisplayMemberBinding="{Binding ClientId}">#</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding FullName}"  >Фио</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Sex}">Пол</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding Phone}">Номер телефона</GridViewColumn>
+                    <GridViewColumn  DisplayMemberBinding="{Binding DateOfBirth}">Дата рождени</GridViewColumn>
+                    <GridViewColumn  Header="Удаление"></GridViewColumn>
+                </GridView> 
+            </ListView.View>
+        </ListView>
+        <TabControl>
+            <TabItem Header="Добавление" Margin="5" IsSelected="True">
+                <StackPanel>
+
+                    <GroupBox BorderBrush="Gray" Header="Фио">
+                        <TextBox Text="{Binding newClient.FullName}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Пол">
+                        <TextBox Text="{Binding newClient.Sex}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Номер телефона">
+                        <TextBox Text="{Binding newClient.Phone}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Дата рождения">
+                        <TextBox Text="{Binding newClient.DateOfBirth}"/>
+                    </GroupBox>
+
+                    <Button Background="Gray" Content="Добавить Клиента" Command="{Binding AddClientsCommand}"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Изменить" Margin="5"/>
+
+        </TabControl>
+    </StackPanel>
 </UserControl>

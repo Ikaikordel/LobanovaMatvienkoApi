@@ -28,6 +28,7 @@ namespace LobanovaMatvienkoWpfClient.ViewModels
             Clients = new ObservableCollection<Client>(await _httpClient.GetAllAsync());
         }
 
+        
 
 
         private Client _CurrentClient;

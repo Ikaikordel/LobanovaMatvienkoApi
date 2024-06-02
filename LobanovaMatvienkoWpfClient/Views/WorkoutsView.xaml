@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="LobanovaMatvienkoWpfClient.Views.WorkoutsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LobanovaMatvienkoWpfClient.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel  Background="Cornsilk" >
+        <ListView x:Name="lv" ItemsSource="{Binding Workouts}" Background="#FF460F0F">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="70" DisplayMemberBinding="{Binding WorkoutId}">#</GridViewColumn>
+                    <GridViewColumn Width="110" DisplayMemberBinding="{Binding OpenTime}"  >Начало</GridViewColumn>
+                    <GridViewColumn Width="135" DisplayMemberBinding="{Binding CloseTime}">Окончание</GridViewColumn>
+                    <GridViewColumn Width="100" DisplayMemberBinding="{Binding GymId}">Id зала</GridViewColumn>
+                    <GridViewColumn Width="130" DisplayMemberBinding="{Binding TrainerId}">Id тренера</GridViewColumn>
+                    <GridViewColumn Width="155" DisplayMemberBinding="{Binding SubscriptionId}">Id абонемента</GridViewColumn>
+                    <GridViewColumn Header="Удаление">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Удалить"  Command="{Binding ElementName=lv, Path=DataContext.DeleteWorkoutCommand}" CommandParameter="{Binding WorkoutId}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TabControl>
+            <TabItem Header="Добавление">
+                <StackPanel>
+
+                    <GroupBox BorderBrush="Gray" Header="Время начала">
+                        <TextBox Text="{Binding newWorkout.OpenTime}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Время окончания">
+                        <TextBox Text="{Binding newWorkout.CloseTime}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Id зала">
+                        <TextBox Text="{Binding newWorkout.GymId}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Id тренера">
+                        <TextBox Text="{Binding newWorkout.TrainerId}"/>
+                    </GroupBox>
+                    <GroupBox BorderBrush="Gray" Header="Id абонемента">
+                        <TextBox Text="{Binding newWorkout.SubscriptionId}"/>
+                    </GroupBox>
+
+                    <Button Background="Gray" Content="Добавить Тренировку" Command="{Binding AddWorkoutsCommand}"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Изменить"/>
+
+        </TabControl>
+    </StackPanel>
+</UserControl>

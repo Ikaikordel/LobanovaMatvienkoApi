@@ -13,6 +13,15 @@
     <Compile Update="Views\GymsView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\SubscriptionsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\TrainersView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WorkoutsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -22,6 +31,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\GymsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SubscriptionsView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\TrainersView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WorkoutsView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
