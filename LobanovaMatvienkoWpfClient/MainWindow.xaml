@@ -9,16 +9,16 @@
         xmlns:local="clr-namespace:LobanovaMatvienkoWpfClient"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance vm:MainViewModel}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1000">
     <TabControl
     materialDesign:NavigationRailAssist.ShowSelectionBackground="True"
     SnapsToDevicePixels="True"
     Style="{StaticResource MaterialDesignNavigationRailTabControl}"
     TabStripPlacement="Left">
-        <TabItem>
+        <TabItem >
             <TabItem.Header>
                 <StackPanel>
-                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Achievement"/>
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Account"/>
                     <TextBlock HorizontalAlignment="Center">
                         Клиенты
                     </TextBlock>
@@ -26,6 +26,52 @@
             </TabItem.Header>
         <v:ClientsView DataContext="{Binding clientsViewModel}"/>
         </TabItem>
+
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel>
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Account"/>
+                    <TextBlock HorizontalAlignment="Center">
+                Залы
+                    </TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <v:ClientsView DataContext="{Binding clientsViewModel}"/>
+        </TabItem>
+        <TabItem Width="100">
+            <TabItem.Header>
+                <StackPanel>
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Account"/>
+                    <TextBlock>
+                Абонементы
+                    </TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <v:ClientsView DataContext="{Binding clientsViewModel}"/>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel>
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Account"/>
+                    <TextBlock HorizontalAlignment="Center">
+                Клиенты
+                    </TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <v:ClientsView DataContext="{Binding clientsViewModel}"/>
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel>
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Account"/>
+                    <TextBlock HorizontalAlignment="Center">
+                Клиенты
+                    </TextBlock>
+                </StackPanel>
+            </TabItem.Header>
+            <v:ClientsView DataContext="{Binding clientsViewModel}"/>
+        </TabItem>
+
 
     </TabControl>
 </Window>

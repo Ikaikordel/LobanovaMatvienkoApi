@@ -218,7 +218,7 @@
         "tags": [
           "Gym"
         ],
-        "summary": "Получение данных по id зала",
+        "summary": "Получение списка всех данных по id зала",
         "operationId": "Gym_Get",
         "parameters": [
           {

@@ -896,7 +896,7 @@ namespace LobanovaMatvienkoApiHttpClient
         }
 
         /// <summary>
-        /// Получение данных по id зала
+        /// Получение списка всех данных по id зала
         /// </summary>
         /// <param name="id">Идентификатор</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -907,7 +907,7 @@ namespace LobanovaMatvienkoApiHttpClient
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
-        /// Получение данных по id зала
+        /// Получение списка всех данных по id зала
         /// </summary>
         /// <param name="id">Идентификатор</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>

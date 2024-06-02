@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen(c => {
 });
 builder.Services.AddOpenApiDocument();
 
-const string connection = "Server=UriaPC\\SQLEXPRESS;Database=LobMatPract;Trusted_Connection=True;TrustServerCertificate=True;";
+const string connection = "DESKTOP-1C0DJTF\\SQLEXPRESS;Database=LobMatPract;Trusted_Connection=True;TrustServerCertificate=True;";
 builder.Services.AddDbContextFactory<ClientContext>(o => o.UseSqlServer(connection));
 builder.Services.AddDbContextFactory<GymContext>(o => o.UseSqlServer(connection));
 builder.Services.AddDbContextFactory<SubscriptionContext>(o => o.UseSqlServer(connection));
